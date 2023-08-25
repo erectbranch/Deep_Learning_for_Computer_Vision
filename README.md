@@ -21,6 +21,20 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
 </br>
 
+## 🚩 정리한 문서 목록
+
+### 📈 Training
+
+- [Training Setup](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec10)
+
+  > activation function: sigmoid, tanh, ReLU, Leaky ReLU, ELU, SELU 비교
+
+  > Data Preprocessing, Weight Initialization(Xavier Initialization, Kaiming Initialization, Residual Block correction)
+
+  > Regularization: L1, L2, Elastic Net, Dropout, Batch Normalization, Data Augmentation(horizontal flip, random crop, color jitter), DropConnection, Fractional Pooling, Stochastic Depth, Cutout, Mixup
+
+</br>
+
 ## :mag: Schedule
 
 ### Lecture 1: Course Introduction

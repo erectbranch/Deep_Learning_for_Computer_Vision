@@ -128,7 +128,7 @@ BatchNorm과 같은 normalization을 쓰지 않아도 DNN을 학습할 수 있�
 
 ---
 
-## 10.2 Data Processing
+## 10.2 Data Preprocessing
 
 효율적인 훈련을 위해서는 데이터셋을 신경망의 입력으로 전달하기 전에, 먼저 전처리 과정을 거쳐야 한다. 아래 그림의 세 가지 데이터 유형을 살펴보자.
 
@@ -322,7 +322,9 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
 
 먼저 loss에 추가 항을 넣어줄 수 있다.
 
-$$ L = {{1} \over {N}}\sum_{i=1}^{N}\sum_{j \neq y_i} \max (0, f(x_i; W)_j - f(x_i; W)_{y_i}+1) + \lambda R(W) $$
+```math
+L = {{1} \over {N}}\sum_{i=1}^{N}\sum_{j \neq y_i} \max (0, f(x_i; W)_j - f(x_i; W)_{y_i}+1) + \lambda R(W)
+```
 
 - $\lambda R(W)$ : regularization
 
@@ -338,7 +340,7 @@ $$ R(W) = \sum_{k} \sum_{l} W_{k,l}^2 $$
 
 $$ R(W) = \sum_{k} \sum_{l} |W_{k,l}| $$
 
-- **Elastic net(L1+L2)**
+- **Elastic Net(L1+L2)**
 
 $$ R(W) = \sum_{k} \sum_{l} \beta W_{k,l}^2 + |W_{k,l}| $$
 
