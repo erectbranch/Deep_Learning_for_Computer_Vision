@@ -28,11 +28,11 @@ SGD, SGD+Momentum, Adagrad, RMSProp, Adam 등은 모두 하이퍼패러미터로
 
 - step
 
-  ![step](images/lr_step.png)
+  ![step](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary01/images/lr_step.png)
 
   이러한 step 방식의 decay를 적용할 경우, epoch에 따른 training loss도 다음과 같이 step 형태로 변화한다. 아래 예시는 ResNets 학습에서 30, 60, 90 epoch에서 lr에 0.1을 곱한 training loss 그래프다.
 
-  ![step loss](images/lr_step_loss.png)
+  ![step loss](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary01/images/lr_step_loss.png)
 
 - cosine
 
@@ -40,11 +40,11 @@ SGD, SGD+Momentum, Adagrad, RMSProp, Adam 등은 모두 하이퍼패러미터로
 
   > 경험적으로 cosine 방식을 사용할 때는 오래 학습하는 것이 성능 면에서 좋다.
 
-  ![cosine](images/lr_cos.png)
+  ![cosine](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary01/images/lr_cos.png)
 
   이러한 cosine 방식의 decay를 적용할 경우, epoch에 따른 traing loss는 다음과 같은 형태가 된다.
 
-  ![cosine loss](images/lr_cos_loss.png )
+  ![cosine loss](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary01/images/lr_cos_loss.png )
 
   다른 learning rate schedule 방식과 비교해도, <U>오직 두 가지 하이퍼패러미터</U>만 조정하면 되기 때문에 훨씬 간단하다.
 

@@ -33,6 +33,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
   > Regularization: L1, L2, Elastic Net, Dropout, Batch Normalization, Data Augmentation(horizontal flip, random crop, color jitter), DropConnection, Fractional Pooling, Stochastic Depth, Cutout, Mixup
 
+- [Training dynamics](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec11/summary01)
+
+  > Learning rate schedules: learning rate decay(step, cosine, linear, inverse sqrt, constant), early stopping
+
+  > hyperparameter optimization: grid search, random search, Bayesian optimization(surrogate model, acquisition function)
+
+  > tips: learning curve, train/validation accuracy, weight update/weight magnitude ratio, without tons of GPUs
+
 </br>
 
 ## :mag: Schedule
