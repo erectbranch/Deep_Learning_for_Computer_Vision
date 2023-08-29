@@ -109,7 +109,9 @@ $$ L(W) = {{1} \over {N}}\sum_{i=1}^{N}L_i(x_i, y_i, W) + \lambda R(W) $$
 
 - gradient는 다음과 같이 정의된다.
 
-$$ {\nabla}_W L(W) = {{1} \over {N}}\sum_{i=1}^{N}{\nabla}_WL_i(x_i, y_i, W) + \lambda {\nabla}_W R(W) $$
+```math
+{\nabla}_W L(W) = {{1} \over {N}}\sum_{i=1}^{N}{\nabla}_WL_i(x_i, y_i, W) + \lambda {\nabla}_W R(W)
+```
 
 모든 데이터 $N$ 개에서, single step마다 이만큼의 연산을 수행하는 것은 굉장히 비효율적이다. 특히 거대한 데이터셋을 사용할수록 연산 비용이 엄청나게 증가하게 될 것이다.
 
@@ -143,9 +145,13 @@ for t in range(num_steps):
 
 따라서 sampling한 minibatch를 바탕으로 계산한 loss function은 이제 기대값으로 정의된다.
 
-$$ L(W) = {\mathbb{E}}_{(x,y)~p_{data}}[L(x,y,W)] + \lambda R(W) $$
+```math
+L(W) = {\mathbb{E}}_{(x,y)~p_{data}}[L(x,y,W)] + \lambda R(W)
+```
 
-$$ {\nabla}_W L(W) = {\nabla}_W {\mathbb{E}}_{(x,y)~p_{data}}[L(x,y,W)] + \lambda {\nabla}_W R(W) $$
+```math
+{\nabla}_W L(W) = {\nabla}_W {\mathbb{E}}_{(x,y)~p_{data}}[L(x,y,W)] + \lambda {\nabla}_W R(W)
+```
 
 ---
 
@@ -443,7 +449,7 @@ Second-Order Optimization은 곡률(curvature)에 따라 양상이 달라진다.
 
 ---
 
-### 4.6.1 Newton's Method
+### 4.6.1 Space Complexity of Second-Order Optimization
 
 그렇다면 실제 계산 과정은 어떻게 진행될까? 이차 미분을 이용한 최적화 방법으로는 대표적으로 뉴턴법(Newton's Method), 가우스-뉴턴법(Gauss-Newton Method), LM(Levenberg–Marquardt algorithm) 등이 있었다.
 
