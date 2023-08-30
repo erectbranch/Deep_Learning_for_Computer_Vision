@@ -9,7 +9,7 @@
   
 <b>강의 주제: Modern Deep Learning Systems for Computer Vision</b></br>
 Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
-[[schedule](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/schedule.html)] | [[youtube](https://youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[Korean](https://sites.google.com/view/statml-smwu-2020s)]</b>
+[schedule: [2019](https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/schedule.html) | [2022](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/schedule.html)] | [[youtube](https://youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[Korean](https://sites.google.com/view/statml-smwu-2020s)]</b>
 
 </div>
 
@@ -22,6 +22,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 </br>
 
 ## 🚩 정리한 문서 목록
+
+### 🔧 Basics of Deep Learning
+
+- [Optimization](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec04)
+
+  > Numeric Gradient, Analytic Gradient
+  
+  > Batch Gradient Descent, Stochastic Gradient Descent, SGD+Momentum, Nesterov Momentum, AdaGrad, RMSProp, Adam, Second-Order Optimization
 
 ### 📈 Training
 
