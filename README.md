@@ -33,6 +33,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
 ### 📈 Training
 
+- [PyTorch: Fundamental Concepts](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec09/summary01)
+
+  > Tensor, Autograd, Module
+
+  > nn, optim, Defining nn Modules, Defining Functions, DataLoaders
+
+  > Dynamic Computation Graphs, Static Computation Graphs
+
 - [Training Setup](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec10)
 
   > activation function: sigmoid, tanh, ReLU, Leaky ReLU, ELU, SELU 비교
