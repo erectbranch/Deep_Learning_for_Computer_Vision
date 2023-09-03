@@ -138,15 +138,19 @@ $$ w_{t+1} = w_t - \eta {1 \over n} \sum_{x \in \mathcal{B}} \nabla l (x, w_t) $
 
 1. k iteration 후의 $w_{t+k}$ update는 다음과 같은 수식이 된다.( batch size $n$ ) 
 
-   ![n minibatch k iteration](images/n_minibatch.png)
+   ![n minibatch k iteration](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary02/images/n_minibatch.png)
 
-$$ w_{t+k} = w_t - \eta {1 \over n} \sum_{j<k}\sum_{x \in \mathcal{B_j}} \nabla l (x, w_{t+j}) $$
+```math
+w_{t+k} = w_t - \eta {1 \over n} \sum_{j<k}\sum_{x \in \mathcal{B_j}} \nabla l (x, w_{t+j})
+```
 
 2. 그런데, batch size $kn$ 개, 1 iteration에서의 minibatch SGD 수식은 위와 유사한 형태를 갖는다.
 
-   ![kn minibatch](images/kn_minibatch.png)
+   ![kn minibatch](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec11/summary02/images/kn_minibatch.png)
 
-$$ \hat{w}_{t+1} = w_t - \hat{\eta} {1 \over kn} \sum_{j<k} \sum_{x \in \mathcal{B_j}} \nabla l (x, w_t) $$
+```math
+\hat{w}_{t+1} = w_t - \hat{\eta} {1 \over kn} \sum_{j<k} \sum_{x \in \mathcal{B_j}} \nabla l (x, w_t)
+```
 
 > $k$ 개의 $n$ batch size 결과를 가지고 update하는 것으로 볼 수 있다.
 
@@ -190,12 +194,17 @@ $$ L(w) = {{1} \over {|X^n|}}\sum_{\mathcal{B} \in X^n}L(\mathcal{B},w) $$
 
   즉, independent한 특성이 깨지지 않는다고 봐서, loss function을 $X^n$ 기준에서 수정할 필요가 없다.
 
-$$ w_{t+k} = w_t - \eta \sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t+j}) $$
+```math
+w_{t+k} = w_t - \eta \sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t+j})
+``````
 
-$$ \hat{w}_{t+1} = w_t - \hat{\eta} {1 \over k}\sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t}) $$
+```math
+\hat{w}_{t+1} = w_t - \hat{\eta} {1 \over k}\sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t})
+``````
 
 > 위 식도 11.7.2절과 마찬가지로, $\hat{\eta} = k\eta$ 로 설정해야 worker가 동일한 최적 지점에 도달할 수 있는 것을 알 수 있다.
 
 > 이러한 이유로 minibatch size $n$ 을 BN에 대한 하이퍼파라미터로 볼 수 있다.
 
 ---
+

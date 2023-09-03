@@ -286,7 +286,7 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
   hs.append(x)
 ```
 
-![activation ex: Kaiming](images/activation_ex_Kaiming.png)
+![activation ex: Kaiming](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec10/images/activation_ex_kaiming.png)
 
 > batch normalization이 등장하기 전, VGGNet의 from scratch 학습을 성공시킨 방법으로도 유명하다.
 
