@@ -196,11 +196,11 @@ $$ L(w) = {{1} \over {|X^n|}}\sum_{\mathcal{B} \in X^n}L(\mathcal{B},w) $$
 
 ```math
 w_{t+k} = w_t - \eta \sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t+j})
-``````
+```
 
 ```math
 \hat{w}_{t+1} = w_t - \hat{\eta} {1 \over k}\sum_{j<k} \nabla L({\mathcal{B}}_j, w_{t})
-``````
+```
 
 > 위 식도 11.7.2절과 마찬가지로, $\hat{\eta} = k\eta$ 로 설정해야 worker가 동일한 최적 지점에 도달할 수 있는 것을 알 수 있다.
 
