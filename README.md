@@ -57,6 +57,12 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
   > tips: learning curve, train/validation accuracy, weight update/weight magnitude ratio, without tons of GPUs
 
+- [After Training, Distributed Training](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec11/summary02)
+
+  > Model ensembles, Transfer Learning
+
+  > Distributed Training: learning rate for large minibatch SGD(linear scaling rule), warmup, batch normalization with large minibatches
+
 </br>
 
 ## :mag: Schedule
