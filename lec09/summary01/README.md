@@ -283,7 +283,11 @@ for t in range(500):
 
 ## 9.5 PyTorch: optim
 
+> [PyTorch Docs: optim](https://pytorch.org/docs/stable/optim.html)
+
 또한 나만의 gradient descent 규칙을 구현하는 과정이 번거롭기 때문에, PyTorch에서는 쉽게 사용할 수 있는 `optim` 모듈을 제공한다.
+
+> `optimizer.param_groups[0]["lr"]` 코드를 통해 현재 learning rate를 확인할 수 있다. 
 
 ```Python
 import torch
@@ -313,7 +317,43 @@ for t in range(500):
   # backward가 끝나면(gradient 계산이 끝나면) 최적화를 수행한다.(step)
   # 또한 gradient를 0으로 초기화하여 버그를 방지한다.
   optimizer.step()
+  # print(optimizer.param_groups[0]["lr"])    # 현재 learning rate 확인
   optimizer.zero_grad()
+```
+
+---
+
+### 9.5.1 PyTorch: optim.lr_scheduler
+
+> [PyTorch Learning rate scheduler 정리](https://sanghyu.tistory.com/113)
+
+> [A Visual Guide to Learning Rate Schedulers in PyTorch](https://towardsdatascience.com/a-visual-guide-to-learning-rate-schedulers-in-pytorch-24bbb262c863)
+
+PyTorch에서는 총 epoch 수에 따라서 learning rate를 조절하는 `lr_scheduler` 기능을 제공한다.
+
+![PyTorch lr_scheduler](images/torch_lr_scheduler.jpg)
+
+다음은 ExponetialLR `lr_scheduler`의 구현 예시다.
+
+- $\gamma$ : 매 epoch마다 learning rate에 곱해지는 decay factor
+
+$$ {lr}_{epoch} = \gamma \cdot {lr}_{epoch - 1} $$
+
+```Python
+optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
+
+for epoch in range(20):
+    # train
+    for input, target in dataset:
+        optimizer.zero_grad()
+        output = model(input)
+        loss = loss_fn(output, target)
+        loss.backward()
+        optimizer.step()
+    # validation step의 경우, 이때 validation을 수행
+
+    scheduler.step()
 ```
 
 ---
