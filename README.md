@@ -63,6 +63,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
   > Distributed Training: learning rate for large minibatch SGD(linear scaling rule), warmup, batch normalization with large minibatches
 
+### 🧠 Neural Networks
+
+- [Recurrent Networks](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec12)
+
+  > Sequantial Processing of Data: one-to-one, one-to-many, many-to-one, many-to-many
+
+  > Recurrent Neural Networks(RNN): Vanilla RNN, Seq2Seq, Language Modeling, Truncated Backpropagation Through Time, LSTM, Multi-Layer RNN
+
 </br>
 
 ## :mag: Schedule
