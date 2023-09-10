@@ -80,7 +80,7 @@ $$ s_t = g_{\mathsf{U}}(y_{t-1}, h_{t-1}, c) $$
 
     initial decoder state(final hidden state) $s_0$ 와, hidden state $h_i$ 를 attention 모델(MLP)의 입력으로 하여 **alignment scores**를 구한다.
 
-    ![alignment score](images/alignment_scores.png)
+    ![alignment score](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/alignment_scores.png)
 
     > $s_0$ 와 $h_1$ 을 연산한 결과가 $e_{11}$ 이 된다.
 
@@ -93,7 +93,7 @@ $$ e_{t,i} = f_{att}(s_{t-1}, h_i) $$
 
     alignment score를 softmax를 이용해 normalize하여, 확률 벡터 형태의 **alignment weights**를 구한다.
 
-    ![alignment weights](images/alignment_weights.png)
+    ![alignment weights](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/alignment_weights.png)
 
     - $0 < a_{t,i} < 1$
 
@@ -103,11 +103,13 @@ $$ e_{t,i} = f_{att}(s_{t-1}, h_i) $$
 
     alignment weights $a_{t,i}$ 와 hidden state $h_{i}$ 의 linear combination으로 **context vector** $c_t$ 를 구한다.
 
-    ![context vector](images/context_vector.png)
+    ![context vector](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/context_vector.png)
 
     > $c_t$ 는 $h_1, \cdots, h_{\mathsf{T}}$ 의 weighted sum이다.
 
-    $$ c_t = \sum_{i} a_{t,i}h_{i} $$
+```math
+c_t = \sum_{i} a_{t,i}h_{i}
+```
 
 ---
 
@@ -117,7 +119,7 @@ $$ e_{t,i} = f_{att}(s_{t-1}, h_i) $$
 
 4. contect vector $c_1$ 와 [START] token $y_0$ 를 바탕으로 출력 시퀀스를 생성한다.
 
-    ![decoder and attention 1](images/decoder_attention_ex_1.png)
+    ![decoder and attention 1](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/decoder_attention_ex_1.png)
 
     > 이때 "estamos"는 "we are"에 attention한다. 예를 들어 $a_{11}=a_{12}=0.45, a_{13}=a_{14}=0.05$ 와 같은 값을 가질 것이다. 
 
@@ -125,11 +127,11 @@ $$ s_t = g_{\mathsf{U}}(y_{t-1}, h_{t-1}, c_t) $$
 
 5. decoder의 hidden state $s_1$ 를 encoder의 hidden state와 연산하여, 새롭게 얻은 context vector $c_2$ 를 바탕으로 출력을 구한다.
 
-    ![decoder and attention 2](images/decoder_attention_ex_2.png)
+    ![decoder and attention 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/decoder_attention_ex_2.png)
 
 6. 과정을 반복하여 출력 시퀀스를 생성한다.
 
-    ![decoder and attention 3](images/decoder_attention_ex_3.png)
+    ![decoder and attention 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/decoder_attention_ex_3.png)
 
 이처럼 매 time step마다 decoder가 다른 context vector를 가지면서 다음과 같은 특징을 갖게 된다.
 
@@ -149,29 +151,29 @@ $$ s_t = g_{\mathsf{U}}(y_{t-1}, h_{t-1}, c_t) $$
 
     이때 각 grid를, 이미지의 spatial position에 대응시킬 수 있다.
 
-    ![image captioning 1](images/image_attention_ex_1.png)
+    ![image captioning 1](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/image_attention_ex_1.png)
 
 2. initial decoder state(final hidden state) $s_{0}$ 와, grid $h_{i,j}$ 를 MLP의 입력으로 주어 attention score를 획득한다.
 
-    ![image captioning 2](images/image_attention_ex_2.png)
+    ![image captioning 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/image_attention_ex_2.png)
 
 $$ e_{t,i,j} = f_{att}(s_{t-1}, h_{i,j}) $$
 
 3. softmax 함수를 이용해 attention weights를 계산한다.
 
-    ![image captioning 3](images/image_attention_ex_3.png)
+    ![image captioning 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/image_attention_ex_3.png)
 
 $$ a_{t,:,:} = \mathrm{softmax}(e_{t,:,:}) $$
 
 4. attention weights를 바탕으로 context vector를 계산한다. context vector $c_t$ 와 [START] token $y_0$ 를 바탕으로 출력을 생성한다.
 
-    ![image captioning 4](images/image_attention_ex_4.png)
+    ![image captioning 4](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/image_attention_ex_4.png)
 
 $$ c_t = \sum_{i,j} a_{t,i,j}h_{i,j} $$
 
 5. 과정을 반복하여 출력 시퀀스를 생성한다.
 
-    ![image captioning 5](images/image_attention_ex_5.png)
+    ![image captioning 5](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/image_attention_ex_5.png)
 
 다음은 시퀀스에 따른 attention을 시각화한 예시이다.
 
@@ -415,21 +417,21 @@ Multihead Self-Attention Layer에서는 두 하이퍼패러미터를 추가로 �
 
 1. 각 input vector를 head 개수 $H$ 만큼 분할한다.
 
-    ![Multihead Self-Attention Layer 1](images/multihead_self_attention_1.png)
+    ![Multihead Self-Attention Layer 1](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_1.png)
 
-    ![Multihead Self-Attention Layer 2](images/multihead_self_attention_2.png)
+    ![Multihead Self-Attention Layer 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_2.png)
 
 2. 분할한 vector를 각 head의 입력으로 사용하여 출력을 얻는다.
 
-    ![Multihead Self-Attention Layer 3](images/multihead_self_attention_3.png)
+    ![Multihead Self-Attention Layer 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_3.png)
 
-    ![Multihead Self-Attention Layer 4](images/multihead_self_attention_4.png)
+    ![Multihead Self-Attention Layer 4](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_4.png)
 
 3. 각 head의 출력을 concat하여 차원을 D로 복원한다.
 
-    ![Multihead Self-Attention Layer 5](images/multihead_self_attention_5.png)
+    ![Multihead Self-Attention Layer 5](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_5.png)
 
-    ![Multihead Self-Attention Layer 6](images/multihead_self_attention_6.png)
+    ![Multihead Self-Attention Layer 6](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/multihead_self_attention_6.png)
 
 ---
 
@@ -460,7 +462,7 @@ Multihead Self-Attention Layer에서는 두 하이퍼패러미터를 추가로 �
 
   **ordered sequence** 처리를 위해 사용할 수 있다.
 
-  ![RNN](images/rnn.png)
+  ![RNN](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/rnn.png)
 
   - (+) 긴 시퀀스에서도 잘 동작한다. ( $h_{\mathsf{T}}$ 가 모든 입력 시퀀스의 정보를 담고 있다.)
 
@@ -470,7 +472,7 @@ Multihead Self-Attention Layer에서는 두 하이퍼패러미터를 추가로 �
 
   **multidimensional grid** 처리를 위해 사용할 수 있다.
 
-  ![1D conv](images/1d_conv.png)
+  ![1D conv](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/1d_conv.png)
 
   - (+) 병렬화가 쉽다.
 
@@ -480,7 +482,7 @@ Multihead Self-Attention Layer에서는 두 하이퍼패러미터를 추가로 �
 
   **sets of vector** 처리를 위해 사용할 수 있다.
 
-  ![Self-Attention layer](images/self_attention_7.png)
+  ![Self-Attention layer](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/self_attention_7.png)
 
   - (+) 병렬화가 쉽다.
 

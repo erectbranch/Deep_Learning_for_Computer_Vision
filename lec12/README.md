@@ -134,7 +134,9 @@ test time에는 다음과 같이 동작한다. 매 time step은 지난 예측값
 
 - one-hot encoding
 
-$$ \begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23} & w_{24} \\ w_{31} & w_{32} & w_{33} & w_{34} \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} = \begin{bmatrix} w_{11} \\ w_{21} \\ w_{31} \end{bmatrix} $$
+```math
+\begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23} & w_{24} \\ w_{31} & w_{32} & w_{33} & w_{34} \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} = \begin{bmatrix} w_{11} \\ w_{21} \\ w_{31} \end{bmatrix}
+```
 
 ---
 
@@ -176,9 +178,13 @@ $$ \begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} \\ w_{21} & w_{22} & w_{23}
 
 $$ h_t = \mathrm{tanh}(W_{hh}h_{t-1} + W_{xh}x_t) $$
 
-$$ = \mathrm{tanh} \left( (W_{hh} \, W_{hx}) \begin{pmatrix} h_{t-1} \\ x_t \end{pmatrix} \right) $$
+```math 
+= \mathrm{tanh} \left( [W_{hh} \, W_{hx}] \begin{bmatrix} h_{t-1} \\ x_t \end{bmatrix} \right)
+```
 
-$$ = \mathrm{tanh} \left( W \begin{pmatrix} h_{t-1} \\ x_t \end{pmatrix} \right) $$
+```math
+= \mathrm{tanh} \left( W \begin{bmatrix} h_{t-1} \\ x_t \end{bmatrix} \right)
+```
 
 이제 backpropagation을 생각해보자. 예를 들어 위 예시에서는 $W_{hh}^{T}$ 를 곱해서 $h_{t-1}$ 의 gradient를 계산하게 된다. 이때 모든 time-step에서 $W_{hh}^{T}$ 가 누적되면서, 둘 중 하나의 문제가 발생할 수 있다.
 
@@ -216,7 +222,9 @@ $$ = \mathrm{tanh} \left( W \begin{pmatrix} h_{t-1} \\ x_t \end{pmatrix} \right)
 
   - sigmoid $\sigma$ : [0, 1]. 0에 가까울수록 과거 정보를 잊는다.
 
-$$ \begin{pmatrix} i \\ f \\ o \\ g \end{pmatrix} = \begin{pmatrix} \sigma \\ \sigma \\ \sigma \\ \mathrm{tanh} \end{pmatrix} W \begin{pmatrix} h_{t-1} \\ x_t \end{pmatrix} $$
+```math
+\begin{bmatrix} i \\ f \\ o \\ g \end{bmatrix} = \begin{bmatrix} \sigma \\ \sigma \\ \sigma \\ \mathrm{tanh} \end{bmatrix} W \begin{bmatrix} h_{t-1} \\ x_t \end{bmatrix}
+```
 
 다음은 LSTM 연산을 순차적으로 나타낸 그림이다.
 
