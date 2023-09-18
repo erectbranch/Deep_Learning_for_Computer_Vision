@@ -58,6 +58,8 @@ PyTorch에서 제일 기본적인 기능은 세 가지로 요악할 수 있다.
 
   > Tensor API만으로도 네트워크 구성, gradients 계산, parameter update 등을 수행할 수 있다.
 
+  > NCHW format을 사용한다. [(NCHW와 관련해서는 정리 참조)](https://github.com/erectbranch/TinyML_and_Efficient_DLC/tree/master/lec17)
+
 - Autograd
 
   자동으로 computational graph를 만들어 주며, gradients를 계산해준다.
@@ -66,9 +68,52 @@ PyTorch에서 제일 기본적인 기능은 세 가지로 요악할 수 있다.
 
   신경망의 layer를 의미한다. 대체로 state나 learnable weights를 가진다.
 
+---
+
+## 9.3 PyTorch: Tensor
+
+> [PyTorch Docs: Tensor](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html)
+
+Tensor를 사용하기 위해서는 다음과 같이 initialize하면 된다.
+
+```Python
+# 1. Direct from data
+data = [[1, 2], [3, 4]]
+x_data = torch.tensor(data)
+
+# 2. From a NumPy array
+np_array = np.array(data)
+x_np = torch.from_numpy(np_array)
+
+# 3. From another tensor
+x_ones = torch.ones_like(x_data)     # retains the properties of x_data
+
+x_rand = torch.rand_like(x_data)     # overrides the datatype of x_data
+```
+
+자주 사용하는 tensor 문법 세 가지를 살펴보자.
+
+```Python
+# 1. tuple 형태의 shape를 정의한다.
+shape = (2,3,)
+
+# 2. Tensor를 생성한다.
+rand_tensor = torch.rand(shape)
+ones_tensor = torch.ones(shape)
+zeros_tensor = torch.zeros(shape)
+```
+
+> 참고로 PyTorch에서 Tensor는 autimatic differentiation을 위해 optimize된다.
+
+> PyTorch는 arithmetic, linear algebra, matrix manipulation (transposing, indexing, slicing), sampling 등 100개가 넘는 tensor operation을 지원한다.
+
 다음은 Tensor operation만으로 수동으로 모든 훈련 과정을 구현한 예시 코드다.
 
 - `torch.mm`: matrix multiplication
+
+- 옵션을 추가하지 않으면(`.to`, `.device`), **tensor는 기본적으로 CPU에서 생성된다.**
+
+  > CPU와 GPU 사이의 data communication의 비용을 고려하기 때문
 
 ```Python
 import torch
@@ -80,7 +125,7 @@ device = torch.device('cuda:0')
 # 임의의 Tensors를 생성한다. 
 # (x,y) 데이터와 weights(w1,w2)
 N, D_in, H, D_out = 64, 1000, 100, 10
-x = torch.randn(N, D_in, device=device)
+x = torch.randn(N, D_in, device=device)    # GPU 연산을 위해 device에 생성해야 한다.
 y = torch.randn(N, D_out, device=device)
 w1 = torch.randn(D_in, H, device=device)
 w2 = torch.randn(H, D_out, device=device)
@@ -110,7 +155,7 @@ for t in range(500):
 
 ---
 
-### 9.2.1 PyTorch: Autograd
+## 9.4 PyTorch: Autograd
 
 위 예시에서 Autograd를 이용하면 자동으로 gradients를 계산하게 만들 수 있다.
 
@@ -171,7 +216,7 @@ for t in range(500):
 
 ---
 
-## 9.3 PyTorch: New Functions
+## 9.5 PyTorch: New Functions
 
 이번에는 계산 과정 중 새로운 함수를 정의해서 사용해 보자. 먼저 다음과 같은 sigmoid를 정의한다.
 
@@ -244,9 +289,13 @@ def sigmoid(x):
 
 ---
 
-## 9.4 PyTorch: nn
+## 9.6 PyTorch: nn
 
 PyTorch에서는 쉽게 신경망을 구성할 수 있는, Object-oriented(객체 지향) API인 `nn` 모듈을 제공한다.
+
+- 모든 패러미터는 `parameters()` 혹은 `named_parameters()` 메서드로 접근이 가능하다.
+
+  ![parameters](images/model_parameters.png)
 
 ```Python
 import torch
@@ -281,7 +330,7 @@ for t in range(500):
 
 ---
 
-## 9.5 PyTorch: optim
+## 9.7 PyTorch: optim
 
 > [PyTorch Docs: optim](https://pytorch.org/docs/stable/optim.html)
 
@@ -323,7 +372,7 @@ for t in range(500):
 
 ---
 
-### 9.5.1 PyTorch: optim.lr_scheduler
+### 9.7.1 PyTorch: optim.lr_scheduler
 
 > [PyTorch Learning rate scheduler 정리](https://sanghyu.tistory.com/113)
 
@@ -358,9 +407,11 @@ for epoch in range(20):
 
 ---
 
-## 9.6 PyTorch: Defining nn Modules
+## 9.8 PyTorch: Defining nn Modules
 
 PyTorch에서 `nn.Module` 신경망의 layer를 의미한다. weights나 다른 modules를 포함하며, 이를 상속받아 쉽게 신경망을 구성할 수 있다.
+
+- `__init__`에서 NN layer를 초기화한다.
 
 - backward 과정은 Autograd를 통해 자동으로 수행되므로 정의할 필요가 없다.
 
@@ -428,9 +479,19 @@ model = torch.nn.Sequential(
 
 ---
 
-## 9.7 PyTorch: DataLoaders
+## 9.9 PyTorch: DataLoaders
 
-PyTorch에서는 데이터셋에서 minibatching, shuffling, multithreading 등의 기능을 쉽게 구현할 수 있도록 `DataLoader` 클래스를 제공한다.
+PyTorch에서는 데이터셋을 다루기 쉽도록 `DataLoader` 클래스를 제공한다.
+
+- `datasets`: samples, labels를 담고 있다.
+
+- `DataLoader`: dataset을 iterable하도록 wrapping한다.
+
+   minibatching, shuffling, sampling, multithreading 등의 기능을 제공한다.
+
+- iteration마다 model은 더 나은 예측을 하도록 학습된다.
+
+  ![iteration](images/iteration.png)
 
 ```Python
 import torch
@@ -461,7 +522,26 @@ for epoch in range(20):
 
 ---
 
-## 9.8 PyTorch: Pretrained Models
+## 9.10 PyTorch: Saving and Loading Models
+
+- `torch.save()` 함수를 이용하여 모델 가중치를 저장한다.
+
+- `state_dict`: 각 layer와 parameter tensor를 매핑해 둔 dictionary
+
+```Python
+torch.save(model.state_dict(), PATH)
+```
+
+- `torch.load()` 함수를 이용하여 모델 가중치를 불러온다.
+
+```Python
+model = NeuralNetwork()
+model.load_state_dict(torch.load(PATH))
+```
+
+---
+
+## 9.11 PyTorch: Pretrained Models
 
 torchvision 라이브러리를 사용하면 다양한 pretrained model을 쉽게 구성할 수 있다.
 
@@ -489,7 +569,7 @@ resnet101 = torchvision.models.resnet101(pretrained=True)
 
 ---
 
-## 9.9 PyTorch: Dynamic Computation Graphs
+## 9.12 PyTorch: Dynamic Computation Graphs
 
 그러나 앞서 backward가 끝나면 graph는 destroy되었다. 따라서 이 말은 iteration마다 매번 graph를 재구축하는 비효율적인 과정을 거쳐야 한다는 것을 의미한다. 하지만 이러한 구현이 갖는 장점이 있는데, Python의 control flow를 그대로 활용할 수 있다는 것이다.
 
@@ -507,7 +587,7 @@ resnet101 = torchvision.models.resnet101(pretrained=True)
 
 ---
 
-### 9.9.1 Static Graph with JIT
+### 9.11.1 Static Graph with JIT
 
 하지만 PyTorch에서도 JIT(Just In Time) 컴파일러를 사용하면 static graph를 구성할 수 있다.
 
