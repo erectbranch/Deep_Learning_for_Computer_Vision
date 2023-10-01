@@ -82,15 +82,15 @@ $$ y_t = W_{hy}h_t $$
 
   (4) backpropagation을 수행한다.
 
-  ![many to many](images/many_to_many.png)
+  ![many to many](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec12/images/many_to_many.png)
 
 - many to one
 
-  ![many to one](images/many_to_one.png)
+  ![many to one](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec12/images/many_to_one.png)
 
 - one to many
 
-  ![one to many](images/one_to_many.png)
+  ![one to many](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec12/images/one_to_many.png)
 
 ---
 
