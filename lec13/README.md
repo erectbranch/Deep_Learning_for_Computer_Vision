@@ -2,6 +2,8 @@
 
 > [Lecture 13: Attention](https://youtu.be/YAgjfMR9R_M?si=rpSSnKo8ZrxDVwJB)
 
+> [Transformers in Vision: From Zero to Hero](https://youtu.be/J-utjBdLCTo?si=80BLlYJprkCzf2Nc)
+
 ---
 
 ## 13.1 Sequence-to-Sequence with RNNs
@@ -255,6 +257,8 @@ $$ c_t = \sum_{i,j} a_{t,i,j}h_{i,j} $$
 
 > (2) query와 key의 유사도를 계산한 후, 대응되는 동영상 목록(value)을 바탕으로 output을 생성한다. (output vector)
 
+![query key value](images/query_key_value.png)
+
 key와 value를 분리한 경우, 수식은 다음과 같다.
 
 - inputs
@@ -311,7 +315,29 @@ Attention Layer를 단계별로 시각화한 그림을 살펴보자.
 
 ---
 
-## 13.5 Self-Attention Layer
+## 13.5 Self-Attention
+
+다른 입력 시퀀스 사이의 dependency뿐만 아니라, 하나의 입력 시퀀스 내에서 갖는 dependency도 파악해야 한다. 이러한 dependency를 찾는 attention layer를 **Self-Attention Layer**라고 한다.
+
+- Attention
+
+  ![attention ex](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/nlp_attention_ex.png)
+
+- Self-Attention
+
+  ![self-attention ex](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/nlp_self-attention_ex.png)
+
+따라서 Self-Attention Mechanism에서는 source와 target이 동일하다.
+
+| Attention | Self-Attention |
+| :---: | :---: |
+| ![attention](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/attention_vs_self-attention_1.png) | ![self-attention](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/lec13/images/attention_vs_self-attention_2.png) |
+| Source(Query) <br/>≠ Target(Key, Value) | Source = Target<br/>(Query, Key, Value) |
+| **inter**-sequence dependencies | **intra**-sequence dependencies |
+
+---
+
+### 13.5.1 Self-Attention Layer
 
 다음은 Attention Layer의 변형 중 하나인 **Self-Attention Layer**이다. self-attention layer에서는 하나의 input vector마다 하나의 query vector가 대응된다.
 
@@ -572,7 +598,7 @@ CV 도메인에서 ImageNet으로 pre-training한 모델을 다른 task에서 �
 
   인터넷에서 수집한 대량의 텍스트 데이터를 바탕으로, 거대한 Transformer-based Language Model을 pre-training한다.
 
-- Finetuning
+- Fine-tuning
 
   내 task에 맞게 pre-trained model를 수정한 뒤, fine-tuning한다.
 

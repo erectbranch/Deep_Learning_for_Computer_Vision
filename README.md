@@ -71,6 +71,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
   > Recurrent Neural Networks(RNN): Vanilla RNN, Seq2Seq, Language Modeling, Truncated Backpropagation Through Time, LSTM, Multi-Layer RNN
 
+- [Attention, Transformer](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec13)
+
+  > RNNs and Attention: Seq2Seq, Image Captioning
+
+  > Attention Layer, Self-Attention Layer(permutation equivariance), Masked Self-Attention Layer, Multi-Head Attention Layer, CNN with Self-Attention
+
+  > Transformer: Pre-Norm Transformer, Transfer Learning, Scaling Up
+
 </br>
 
 ## :mag: Schedule
