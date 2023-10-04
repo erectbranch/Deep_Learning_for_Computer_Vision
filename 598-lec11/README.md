@@ -50,15 +50,21 @@ Batch Normalization은 다음과 같은 과정으로 진행된다.
 
 1. Per-channel mean (shape: D)
 
-$$ {\mu}_j = {1 \over N} \sum_{i=1}^{N} x_{i,j} $$
+```math
+{\mu}_j = {1 \over N} \sum_{i=1}^{N} x_{i,j}
+```
 
 2. Per-channel std (shape: D)
 
-$$ {\sigma}_j^2 = {1 \over N} \sum_{i=1}^{N} (x_{i,j} - {\mu}_j)^2 $$
+```math
+{\sigma}_j^2 = {1 \over N} \sum_{i=1}^{N} (x_{i,j} - {\mu}_j)^2
+```
 
 3. Normalize (shape: N x D)
 
-$$ \hat{x}_{i,j} = {{x_{i,j} - {\mu}_j} \over {\sqrt{{\sigma}_j^2 + \epsilon}}} $$
+```math
+\hat{x}_{i,j} = {{x_{i,j} - {\mu}_j} \over {\sqrt{{\sigma}_j^2 + \epsilon}}}
+```
 
 4. Output (shape: N x D)
 
@@ -102,7 +108,9 @@ test time에서 평균, 분산, normalized x, output을 다음과 같이 계산�
 
 - Normalized x
 
-$$ \hat{x}_{i,j} = {{x_{i,j} - {\mu}_j} \over {\sqrt{{\sigma}_j^2 + \epsilon}}} $$
+```math
+\hat{x}_{i,j} = {{x_{i,j} - {\mu}_j} \over {\sqrt{{\sigma}_j^2 + \epsilon}}}
+```
 
 - Output
 
@@ -180,7 +188,7 @@ ResNeXt 논문에서는 ResNet의 Residual block을 multiple branch로 확장한
 
 || Residual Block | ResNeXt block |
 | :---: | :---: | :---: |
-|| ![residual block](images/residual_bottleneck.png) | ![resnext block](images/resnext_block.png) |
+|| ![residual block](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/residual_bottleneck.png) | ![resnext block](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_block.png) |
 | FLOPs | $17HWC^2$ | $(8Cc + 9c^2) \times HWG$ |
 
 computational complexity(FLOPs)를 동일하게 유지하면서도 정확도를 향상시킬 수 있다. 다음은 ResNet-50, ResNet-100과 ResNeXt를 비교한 결과다.
@@ -255,14 +263,16 @@ NFNets(Normalizer-Free ResNets) 논문은 batch normalization를 사용하지 �
 
 || Residual Block | Scaled Residual Block |
 | :---: | :---: | :---: |
-|| ![residual block](images/residual.png) | ![scaled residual block](images/scaled_residual.png) |
+|| ![residual block](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/residual.png) | ![scaled residual block](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/scaled_residual.png) |
 | Pre-activation | $x_{l+1} = f_l (x_l) + x_l$ | $x_{l+1} = x_l + \alpha f_l(x_l/{\beta}_l)$ |
 
 - 기존 Residual Block
 
   블록을 거치면 거칠수록 variance가 커지게 된다.
 
-  $$ Var(x_{l+1}) = Var(x_l) + Var(f_l(x_l)) $$
+  ```math
+  Var(x_{l+1}) = Var(x_l) + Var(f_l(x_l)) 
+  ```
 
 - Scaled Residual Block
 
@@ -280,7 +290,9 @@ NFNets(Normalizer-Free ResNets) 논문은 batch normalization를 사용하지 �
 
   > 각 downsampling block을 거칠 때마다, $1+{\alpha}^2$ 로 초기화된다.
 
-  $$ Var(x_{l+1}) = Var(x_l) + {\alpha}^2 $$
+  ```math
+  Var(x_{l+1}) = Var(x_l) + {\alpha}^2
+  ```
 
 ---
 
@@ -289,7 +301,9 @@ NFNets(Normalizer-Free ResNets) 논문은 batch normalization를 사용하지 �
 BFNets에서는 (activation을 normalize한 BN과 다르게) weight를 직접 normalize하는 **Weight Standardization**을 도입한다. 학습 중 $\hat{W}$ 를 두고, backpropagation 과정을 거치며 업데이트를 반복한다.
 
 
-$$ \hat{W}_{i,j} = \gamma \cdot {{W_{i,j} - mean(W_i)} \over {std(W_i)\sqrt{N}}} $$
+```math
+\hat{W}_{i,j} = \gamma \cdot {{W_{i,j} - mean(W_i)} \over {std(W_i)\sqrt{N}}}
+```
 
 - $W_i$ : 단일 convolution filter
 
@@ -395,7 +409,7 @@ ResNet을 기반으로 한 design space는, 각 stage에서 4가지 structural p
 
 | EDF | depth $d$ | stage 4 width $w_4$ |
 | :---: | :---: | :---: |
-| ![ResNeXt random search 1](images/resnext_error_edf_1.png) | ![ResNeXt random search 2](images/resnext_error_edf_2.png) | ![ResNeXt random search 3](images/resnext_error_edf_3.png) |
+| ![ResNeXt random search 1](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_1.png) | ![ResNeXt random search 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_2.png) | ![ResNeXt random search 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_3.png) |
 | 500개 모델 훈련 후 error distribution 측정<br/>(Design Space Quality) | 블록 수(depth)에 따른 error 분포 | 출력 채널 수(width)에 따른 error 분포 |
 
 > 하늘색: 95% confidence를 갖는 best model을 포함하는 구간
@@ -622,11 +636,11 @@ $$ y = x + g(x) + f(x) $$
 
     - zero-padding을 통해 3x3 convolution 형태로 변환한다.
 
-    ![structural reparameterization 2](images/structural_reparams_2.png)
+    ![structural reparameterization 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/structural_reparams_2.png)
 
 2. 모든 3x3 conv branch을 합산하여, 단일 conv 레이어로 만든다.
 
-    ![structural reparameterization 3](images/structural_reparams_3.png)
+    ![structural reparameterization 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/structural_reparams_3.png)
 
 
 ---
