@@ -65,6 +65,14 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
 ### 🧠 Neural Networks
 
+- [Recent ConvNets](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/598-lec11)
+
+  > Batch Normalization(train-time, test-time, pros and cons), NFNets(Scaled Residual Block, Weight Standardization)
+
+  > ResNeXt, SENet, Revisiting ResNets, RegNets(design space: shared bottleneck ratio, shared group width, linear parameterization of width and depth)
+
+  > Structural Re-parameterization: ACNet(Asymmetric Convolution Block), RepVGG(RepVGG Block)
+
 - [Recurrent Networks](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec12)
 
   > Sequantial Processing of Data: one-to-one, one-to-many, many-to-one, many-to-many
