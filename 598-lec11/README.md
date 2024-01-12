@@ -270,9 +270,9 @@ NFNets(Normalizer-Free ResNets) 논문은 batch normalization를 사용하지 �
 
   블록을 거치면 거칠수록 variance가 커지게 된다.
 
-  ```math
-  Var(x_{l+1}) = Var(x_l) + Var(f_l(x_l)) 
-  ```
+```math
+Var(x_{l+1}) = Var(x_l) + Var(f_l(x_l)) 
+```
 
 - Scaled Residual Block
 
@@ -290,9 +290,9 @@ NFNets(Normalizer-Free ResNets) 논문은 batch normalization를 사용하지 �
 
   > 각 downsampling block을 거칠 때마다, $1+{\alpha}^2$ 로 초기화된다.
 
-  ```math
-  Var(x_{l+1}) = Var(x_l) + {\alpha}^2
-  ```
+```math
+Var(x_{l+1}) = Var(x_l) + {\alpha}^2
+```
 
 ---
 
@@ -383,7 +383,9 @@ Revisiting ResNets 논문은, 다양한 training, scaling 기법을 적용했을
 
 > [Designing Network Design Spaces 논문(2020)](https://arxiv.org/abs/2003.13678)
 
-RegNets 논문은 network design space를 re-design하는 방식으로, 보다 성능이 좋은 모델을 찾아내는 방법을 소개한다.
+> Search Space 내 인스턴스를 찾는 것이 주된 목적이 아니기 때문에, RegNets 논문에서는 Design Spaces라는 용어로 구별해서 지칭한다.
+
+RegNets 논문은 network design space를 re-design하여, 보다 효율적이며 성능이 좋은 모델을 탐색하는 방법을 소개한다.
 
 ![design space design](images/search_space_design.png)
 
@@ -405,14 +407,14 @@ ResNet을 기반으로 한 design space는, 각 stage에서 4가지 structural p
 
 > 총 4개 stage를 가지므로 design space는 16개 패러미터(Degree of Freedom)로 구성된다. 
 
-논문에서는 ResNet 기반 design space에서 random search를 통한 500개 모델 생성 후, error rate를 시각화하여 design space의 성능을 측정한다.
+이때 논문에서는 random search를 통한 500개 모델 생성 후, error rate를 다음과 같이 시각화하는 방식으로 design space의 성능을 측정한다.
 
-| EDF | depth $d$ | stage 4 width $w_4$ |
+| Design Space Quality | depth $d$ | stage 4 width $w_4$ |
 | :---: | :---: | :---: |
 | ![ResNeXt random search 1](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_1.png) | ![ResNeXt random search 2](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_2.png) | ![ResNeXt random search 3](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/blob/master/598-lec11/images/resnext_error_edf_3.png) |
-| 500개 모델 훈련 후 error distribution 측정<br/>(Design Space Quality) | 블록 수(depth)에 따른 error 분포 | 출력 채널 수(width)에 따른 error 분포 |
+| 500개 모델 훈련 후 error distribution 측정<br/>(EDF) | 블록 수(depth)에 따른 error 분포 | 출력 채널 수(width)에 따른 error 분포 |
 
-> 하늘색: 95% confidence를 갖는 best model을 포함하는 구간
+> 하늘색 배경 박스: 95% 신뢰도로 best model을 포함하는 구간 / 검은색 실선: 가장 높은 확률로 best model을 포함하는 구간
 
 > EDF: Empirical Distribution Function
 
@@ -420,7 +422,7 @@ ResNet을 기반으로 한 design space는, 각 stage에서 4가지 structural p
 
 ### 11.11.2 Shared Bottleneck Ratio, Shared Group Width
 
-RegNets은 ResNet design space를 분석한 결과에서 직관을 얻어, 다음과 같이 design space를 단순화한다.
+RegNets은 ResNet design space를 분석한 결과에서 직관을 얻어, 다음과 같은 방법으로 design space를 단순화한다.
 
 - shared bottleneck ratio
 
