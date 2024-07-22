@@ -23,15 +23,18 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
 ## 🚩 정리한 문서 목록
 
-### 🔧 Basics of Deep Learning
+<details markdown="1">
+<summary><h3>🔧 Basics of Deep Learning</h3></summary>
 
 - [Optimization](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec04)
 
   > Numeric Gradient, Analytic Gradient
   
   > Batch Gradient Descent, Stochastic Gradient Descent, SGD+Momentum, Nesterov Momentum, AdaGrad, RMSProp, Adam, Second-Order Optimization
+</details>
 
-### 📈 Training
+<details markdown="1">
+<summary><h3>📈 Training</h3></summary>
 
 - [PyTorch: Fundamental Concepts](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec09/summary01)
 
@@ -57,13 +60,15 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
 
   > tips: learning curve, train/validation accuracy, weight update/weight magnitude ratio, without tons of GPUs
 
-- [After Training, Distributed Training](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec11/summary02)
+- [Ensembles, Transfer Learning, Distributed Training](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/lec11/summary02)
 
   > Model ensembles, Transfer Learning
 
   > Distributed Training: learning rate for large minibatch SGD(linear scaling rule), warmup, batch normalization with large minibatches
+</details>
 
-### 🧠 Neural Networks
+<details markdown="1">
+<summary><h3>🧠 Neural Networks</h3></summary>
 
 - [Recent ConvNets](https://github.com/erectbranch/Deep_Learning_for_Computer_Vision/tree/master/598-lec11)
 
@@ -86,95 +91,36 @@ Instructor : Justin Johnson(Assistant Professor, University of Michigan)</br>
   > Attention Layer, Self-Attention Layer(permutation equivariance), Masked Self-Attention Layer, Multi-Head Attention Layer, CNN with Self-Attention
 
   > Transformer: Pre-Norm Transformer, Transfer Learning, Scaling Up
+</details>
+
 
 </br>
 
-## :mag: Schedule
+## :mag: Schedule (EECS 498-007 / 598-005 • Fall 2019)
 
-### Lecture 1: Course Introduction
+| Date | Lecture | Video | Slide |
+| --- | --- | --- | --- |
+| **Sep 4** | Lecture 1: **Course Introduction** | [[video](https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture01.pdf)] |
+| **Sep 9** | Lecture 2: **Image Classification** | [[video](https://www.youtube.com/watch?v=0nqvO3AM2Vw&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture02.pdf)] |
+| **Sep 11** | Lecture 3: **Linear Classifiers** | [[video](https://www.youtube.com/watch?v=qcSEP17uKKY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://www.dropbox.com/scl/fi/vns8vgzfrjjqrjovqtrxw/lec03.pdf?rlkey=nwofk3suges17224m7idg9nwm&dl=0)] |
+| **Sep 16** | Lecture 4: **Optimization** | [[video](https://www.youtube.com/watch?v=YnQJTfbwBM8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture04.pdf)] |
+| **Sep 18** | Lecture 5: **Neural Networks** | [[video](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture05.pdf)] |
+| **Sep 23** | Lecture 6: **Backpropagation** | [[video](https://www.youtube.com/watch?v=dB-u77Y5a6A&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture06.pdf)] |
+| **Sep 25** | Lecture 7: **Convolutional Networks** | [[video](https://www.youtube.com/watch?v=ANyxBVxmdZ0&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture07.pdf)] |
+| **Sep 30** | Lecture 8: **CNN Architectures** | [[video](https://www.youtube.com/watch?v=XaZIlVrIO-Q&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture08.pdf)] |
+| **Oct 2** | Lecture 9: **Hardware and Software** | [[video](https://www.youtube.com/watch?v=oXPX8GIOiU4&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf)] |
+| **Oct 7** | Lecture 10: **Training Neural Networks I** | [[video](https://www.youtube.com/watch?v=lGbQlr1Ts7w&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture10.pdf)] |
+| **Oct 9** | Lecture 11: **Training Neural Networks II** | [[video](https://www.youtube.com/watch?v=WUazOtlti0g&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture11.pdf)] |
+| **Oct 16** | Lecture 12: **Recurrent Networks** | [[video](https://www.youtube.com/watch?v=dUzLD91Sj-o&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture12.pdf)] |
+| **Oct 23** | Lecture 13: **Attention** | [[video](https://www.youtube.com/watch?v=YAgjfMR9R_M&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture13.pdf)] |
+| **Nov 4** | Lecture 14: **Visualizing and Understanding** | [[video](https://www.youtube.com/watch?v=G1hGwHVykDU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture14.pdf)] |
+| **Nov 6** | Lecture 15: **Object Detection** | [[video](https://www.youtube.com/watch?v=TB-fdISzpHQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture15.pdf)] |
+| **Nov 11** | Lecture 16: **Image Segmentation** | [[video](https://www.youtube.com/watch?v=9AyMR4IhSWQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture16.pdf)] |
+| **Nov 13** | Lecture 17: **3D vision** | [[video](https://www.youtube.com/watch?v=S1_nCdLUQQ8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture17.pdf)] |
+| **Nov 18** | Lecture 18: **Videos** | [[video](https://www.youtube.com/watch?v=A9D6NXBJdwU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture18.pdf)] |
+| **Nov 20** | Lecture 19: **Generative Models I** | [[video](https://www.youtube.com/watch?v=Q3HU2vEhD5Y&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture19.pdf)] |
+| **Dec 2** | Lecture 20: **Generative Models II** | [[video](https://www.youtube.com/watch?v=igP03FXZqgo&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture20.pdf)] |
+| **Dec 4** | Lecture 21: **Reinforcement Learning** | [[video](https://www.youtube.com/watch?v=Qex3XzcFKP4&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture21.pdf)] |
+| **Dec 9** | Lecture 22: **Conclusion** | [[video](https://www.youtube.com/watch?v=s3Ky_Ls4YSY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r)] | [[slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture22.pdf)] |
 
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture01.pdf) | [video](https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
 
-### Lecture 2: Image Classification
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture02.pdf) | [video](https://www.youtube.com/watch?v=0nqvO3AM2Vw&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 3: Linear Classifiers
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture03.pdf) | [video](https://www.youtube.com/watch?v=qcSEP17uKKY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 4: Optimization
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture04.pdf) | [video](https://www.youtube.com/watch?v=YnQJTfbwBM8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 5: Neural Networks
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture05.pdf) | [video](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 6: Backpropagation
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture06.pdf) | [video](https://www.youtube.com/watch?v=dB-u77Y5a6A&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 7: Convolutional Networks
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture07.pdf) | [video](https://www.youtube.com/watch?v=ANyxBVxmdZ0&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 8: CNN Architectures
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture08.pdf) | [video](https://www.youtube.com/watch?v=XaZIlVrIO-Q&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 9: Hardware and Software
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf) | [video](https://www.youtube.com/watch?v=oXPX8GIOiU4&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 10: Training Neural Networks I
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture10.pdf) | [video](https://www.youtube.com/watch?v=lGbQlr1Ts7w&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 11: Training Neural Networks II
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture11.pdf) | [video](https://www.youtube.com/watch?v=WUazOtlti0g&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 12: Recurrent Networks
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture12.pdf) | [video](https://www.youtube.com/watch?v=dUzLD91Sj-o&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 13: Attention
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture13.pdf) | [video](https://www.youtube.com/watch?v=YAgjfMR9R_M&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 14: Visualizing and Understanding
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture14.pdf) | [video](https://www.youtube.com/watch?v=G1hGwHVykDU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 15: Object Detection
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture15.pdf) | [video](https://www.youtube.com/watch?v=TB-fdISzpHQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 16: Image Segmentation
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture16.pdf) | [video](https://www.youtube.com/watch?v=9AyMR4IhSWQ&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 17: 3D vision
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture17.pdf) | [video](https://www.youtube.com/watch?v=S1_nCdLUQQ8&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 18: Videos
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture18.pdf) | [video](https://www.youtube.com/watch?v=A9D6NXBJdwU&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 19: Generative Models I
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture19.pdf) | [video](https://www.youtube.com/watch?v=Q3HU2vEhD5Y&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 20: Generative Models II
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture20.pdf) | [video](https://www.youtube.com/watch?v=igP03FXZqgo&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 21: Reinforcement Learning
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture21.pdf) | [video](https://www.youtube.com/watch?v=Qex3XzcFKP4&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
-
-### Lecture 22: Conclusion
-
-[ [slides](https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture22.pdf) | [video](https://www.youtube.com/watch?v=s3Ky_Ls4YSY&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) ]
