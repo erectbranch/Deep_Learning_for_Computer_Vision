@@ -43,10 +43,58 @@ $$ w^{*} = \mathrm{arg}{\min}_{w} L(w) $$
 
 다음 가중치 행렬과 손실 함수 예시를, Numeric Gradient 방식으로 계산해 보자. (첫 번째 차원만)
 
-| 현재 가중치 행렬 $W$ | $W+h$ (first dim) | gradient $dL/dW$ |
-| :---: | :---: | :---: |
-| $\begin{bmatrix} 0.34 \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$ | $\begin{bmatrix} 0.34 + \boldsymbol{0.0001} \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$ | $\begin{bmatrix} \boldsymbol{-2.5} \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ \vdots \end{bmatrix}$ |
-| loss = 1.25347 | loss = 1.25322 | |
+<table>
+<tr>
+<th> 
+
+현재 가중치 행렬 $W$ 
+
+</th> 
+<th> 
+
+$W+h$ (first dim) 
+
+</th> 
+<th> 
+
+gradient $dL/dW$ 
+
+</th>
+</tr>
+<tr>
+<th> 
+
+$\begin{bmatrix} 0.34 \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$
+
+</th> 
+<th> 
+
+$\begin{bmatrix} 0.34 + \boldsymbol{0.0001} \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$
+
+</th>
+<th> 
+
+$\begin{bmatrix} \boldsymbol{-2.5} \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ ? \\ \vdots \end{bmatrix}$
+
+</th>
+</tr>
+<tr>
+<th> 
+
+loss = 1.25347
+
+</th> 
+<th> 
+
+loss = 1.25322
+
+</th> 
+<th> 
+
+
+</th>
+</tr>
+</table>
 
 > ${{df(x)} \over {dx}} = {{1.25322 - 1.25347} \over {0.0001}} = -2.5$
 
@@ -64,9 +112,42 @@ $$ w^{*} = \mathrm{arg}{\min}_{w} L(w) $$
 
 혹은, 수학적으로 함수의 미분식을 활용하는 **analytic gradient** 방식을 사용할 수 있다. 
 
-| 현재 가중치 행렬 $W$ | $dL/dW = ...$  | gradient $dL/dW$ |
-| :---: | :---: | :---: |
-| $\begin{bmatrix} 0.34 \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$ | some function data and $W$ | $\begin{bmatrix} -2.5 \\ 0.6 \\ 0 \\ 0.2 \\ 0.7 \\ -0.5 \\ 1.1 \\ 1.3 \\ -2.1 \\ \vdots \end{bmatrix}$ |
+<table>
+<tr>
+<th> 
+
+현재 가중치 행렬 $W$ 
+
+</th> 
+<th> 
+
+$dL/dW = ...$
+
+</th> 
+<th> 
+
+gradient $dL/dW$ 
+
+</th>
+</tr>
+<tr>
+<th> 
+
+$\begin{bmatrix} 0.34 \\ -1.11 \\ 0.78 \\ 0.12 \\ 0.55 \\ 2.81 \\ -3.1 \\ -1.5 \\ 0.33 \\ \vdots \end{bmatrix}$
+
+</th> 
+<th> 
+
+some function data and $W$
+
+</th>
+<th> 
+
+$\begin{bmatrix} -2.5 \\ 0.6 \\ 0 \\ 0.2 \\ 0.7 \\ -0.5 \\ 1.1 \\ 1.3 \\ -2.1 \\ \vdots \end{bmatrix}$
+
+</th>
+</tr>
+</table>
 
 > 자세한 계산은 lecture 6 참조(backpropagation을 통해 analytic gradient를 계산하는 방법을 다룬다.)
 
@@ -377,7 +458,7 @@ $x_{t+1} = x_t - \alpha v_{t+1}$
 
 <blockquote>
 
-참고로 Nesterov momentum 식에서 $\tilde{x_t} = x_t + \rho v_t$ 치환을 적용하면 다음과 같다.
+참고로 Nesterov momentum 식에 $\tilde{x_t} = x_t + \rho v_t$ 치환을 적용하면, 다음과 같이 표현할 수 있다.
 
 ```math
 v_{t+1} = \rho v_t - \alpha \nabla f({\tilde{x}}_t)
